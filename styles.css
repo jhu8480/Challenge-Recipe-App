@@ -152,9 +152,10 @@ img {
   font-size: 1.2rem;
   background-color: transparent;
   color: darkgray;
+  margin-left: 5px;
 }
 
-.meal-body .fav-btn:active {
+.meal-body .fav-btn.active {
   color: black;
 }
 

@@ -27,7 +27,6 @@ async function getMealsBySearch(term) {
 function addMeal(mealData, random = false) {
   const meal = document.createElement('div');
   meal.classList.add('meal');
-  
   meal.innerHTML = `
   <div class="meal-header">
     ${random ? `<span class="random">check this recipe</span>`: ''}
@@ -40,5 +39,11 @@ function addMeal(mealData, random = false) {
     </button>
   </div>`;
 
+  const btn = meal.querySelector('.meal-body .fav-btn');
+  btn.addEventListener("click", function () {
+    btn.classList.toggle('active');
+  });
+
   meals.appendChild(meal);
 }
+// 2:18:22
