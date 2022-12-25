@@ -3,6 +3,7 @@
 
 * {
   box-sizing: border-box;
+  border: 0.5px solid black;
 }
 
 body {
@@ -14,15 +15,68 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 150vh;
 }
 
 .mobile-container {
   width: 400px;
-  border: 1px solid black;
   background-color: white;
+  box-shadow: 0 0 10px 5px #3333331A;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+header {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header input {
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  border: none;
+  background-color: #eee;
+}
+
+header button {
+  border: none;
+  background-color: transparent;
+  color: #aaa;
+  font-size: 1.4rem;
+}
+
+header button:hover {
+  color: darkgray;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.fav-container {
+  text-align: center;
+  padding: 1rem;
+}
+
+.fav-meals {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
 }
 
 img {
   max-width: 100%;
+}
+
+.fav-meals li {
+  width: 85px;
+}
+
+.fav-meals li img {
+  border: 2px solid #ffffff1a;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
 }
