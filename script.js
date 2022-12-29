@@ -140,7 +140,9 @@ async function getMealsBySearch(term) {
 function showSearchResult(searchResult) {
   const randomContainer = document.getElementById('meals');
   randomContainer.innerHTML = '';
-  randomContainer.innerHTML = `
+  const newDiv = document.createElement('div');
+  newDiv.classList.add('meal');
+  newDiv.innerHTML = `
   <div class="meal-header">
     ${`<span class="random">Search Result</span>`}
     <a href="${searchResult[0].strSource}" target="_blank">
@@ -153,6 +155,24 @@ function showSearchResult(searchResult) {
       <i class="fa fa-heart"></i>
     </button>
   </div>`;
+
+  const button = newDiv.querySelector('.fav-btn');
+  button.addEventListener('click', () => {
+    if(button.classList.contains('active')) {
+      removeIdMealFromLS(searchResult[0].idMeal);
+      button.classList.remove('active');
+    } else {
+      addIdMealToLS(searchResult[0].idMeal);
+      button.classList.add('active');
+    }
+    
+    document.getElementById('fav-list').innerHTML = '';
+    fetchFromLS()
+  })
+  
+  
+  console.log(searchResult);
+  randomContainer.appendChild(newDiv);
 }
 
 
