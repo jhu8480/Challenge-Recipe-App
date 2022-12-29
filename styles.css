@@ -83,6 +83,7 @@ img {
 .fav-meals li {
   width: 85px;
   padding: 7px;
+  position: relative;
 }
 
 .fav-meals li img {
@@ -100,11 +101,25 @@ img {
   font-size: 0.68rem;
 }
 
-.trash {
+.clear {
   border: none;
   background-color: transparent;
   display: block;
   margin: auto;
+  position: absolute;
+  top: 0;
+  left: 65px;
+  opacity: 0;
+}
+
+.clear:active {
+  color: gray;
+  opacity: 1;
+}
+
+.clear:hover {
+  cursor: pointer;
+  opacity: 1;
 }
 
 .meals {
