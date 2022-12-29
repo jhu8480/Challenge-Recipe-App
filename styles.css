@@ -100,6 +100,13 @@ img {
   font-size: 0.68rem;
 }
 
+.trash {
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: auto;
+}
+
 .meals {
   width: 100%;
   padding-top: 20px;

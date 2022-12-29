@@ -1,8 +1,10 @@
 //global variables
 const meals = document.getElementById('meals');
-
+//const defaultFav = ['52823', '53038', '52775'];
 
 // Execution
+
+//localStorage.setItem('IdMeals', JSON.stringify(defaultFav));
 getRandomMeal();
 fetchFromLS();
 
@@ -22,8 +24,10 @@ function addMeal(mealData, random = false) {
   meal.classList.add('meal');
   meal.innerHTML = `
   <div class="meal-header">
-    ${random ? `<span class="random">check this recipe</span>`: ''}
-    <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+    ${random ? `<span class="random">Random recipe</span>`: ''}
+    <a href="${mealData.strSource}" target="_blank">
+      <img src="${mealData.strMealThumb}" alt="${mealData.strMeal}">
+    </a>
   </div>
   <div class="meal-body">
     <h4>${mealData.strMeal}</h4>
@@ -41,6 +45,9 @@ function addMeal(mealData, random = false) {
       addIdMealToLS(mealData.idMeal);
       btn.classList.add('active');
     }
+    
+    document.getElementById('fav-list').innerHTML = '';
+    fetchFromLS()
   });
 
   meals.appendChild(meal);
@@ -84,9 +91,13 @@ async function fetchFromLS() {
 function addMealToFav(favMeal) {
   const favList = document.getElementById('fav-list');
   const newListItem = document.createElement('li');
-  newListItem.innerHTML = `<img src="${favMeal.strMealThumb}" alt="${favMeal.strMeal}"> <span>${favMeal.strMeal.slice(0, 10).toUpperCase()}</span>`;
+  newListItem.innerHTML = `<a href="${favMeal.strYoutube}" target="_blank"><img src="${favMeal.strMealThumb}" alt="${favMeal.strMeal}"></a> <span>${favMeal.strMeal.slice(0, 10).toUpperCase()}</span>
+  <button class="trash" id="${favMeal.idMeal}"><i class="fa-solid fa-square-minus"></i></button>`;
+
   favList.appendChild(newListItem);
 }
+
+
 
 // --> search bar section
 async function getMealsBySearch(term) {
